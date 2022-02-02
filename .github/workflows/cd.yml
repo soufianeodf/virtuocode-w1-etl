@@ -13,7 +13,9 @@ jobs:
       - name: Discard all local git changes
         run: git checkout -- .
         continue-on-error: true
+
       - uses: actions/checkout@v2
+
       - name: Remove images from local
         run: docker images -aq | xargs --no-run-if-empty docker rmi -f $(docker images -aq)
         continue-on-error: true

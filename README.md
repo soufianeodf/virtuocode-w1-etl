@@ -68,3 +68,13 @@ docker-compose up -d
     docker-compose exec superset pip install pybigquery
     docker-compose restart superset
     ```
+
+## Known issues
+### Github actions
+
+**Issue**: Permission denied when "Deleting the contents of" when using <code>actions/checkout</code>
+
+**Solution**:
+```
+sudo chown -R $USER:$USER /home/github/actions-runner/_work/{REPOSITORY_NAME_HERE}
+```
